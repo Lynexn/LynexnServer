@@ -7,18 +7,17 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res.json({
-        'hellp': "hi!"
-    })
-})
+        'hello': "hi!"
+    });
+});
 
 router.get('/test', (req, res) => {
     res.json({
         'test': "test!"
-    })
-})
+    });
+});
 
+// Mount the router middleware on the app
+app.use('/.netlify/functions/api', router);
 
-app.use('/.netlify/functions/api')
-
-
-module.exports.handler = serverless(app)
+module.exports.handler = serverless(app);
